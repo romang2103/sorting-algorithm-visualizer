@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.array-container {
+    display: flex;
+    height: 800px;
+    justify-content: center;
+    align-items: baseline;
+    border: solid black;
+    padding-top: 50px;
+}
+
+.array-bar {
+    background-color: orange;
+    width: 2px;
+    margin: 0 1px;
+    /* border: solid black; */
+}
