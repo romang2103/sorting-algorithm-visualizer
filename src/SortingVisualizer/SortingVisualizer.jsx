@@ -1,4 +1,6 @@
 import React from 'react';
+import { mergeSortFunction } from '../sortingAlgorithms/mergeSort';
+import { merge } from '../sortingAlgorithms/mergeSort';
 import './SortingVisualizer.css'
 
 
@@ -17,13 +19,17 @@ export default class SortingVisualizer extends React.Component {
 
     resetArray() {
         const array = [];
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 100; i++) {
             array.push(randomIntFromInterval(5,600));
         }
         this.setState({array});
     }
 
-    mergeSort() {}
+    mergeSort() {
+        const result = mergeSortFunction(this.state.array);
+        const test = this.state.array.slice().sort((a, b) => a - b);
+        console.log(arraysAreEqual(result, test));
+    }
 
     quickSort() {}
 
@@ -59,3 +65,12 @@ export default class SortingVisualizer extends React.Component {
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
+
+
+function arraysAreEqual(array1, array2) {
+    if(array1.length !== array2.length) return false;
+    for (let i=0; i<array1.length; i++) {
+        if(array1[i] !== array2[i]) return false;
+    }
+    return true;
+}
